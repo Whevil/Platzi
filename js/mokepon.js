@@ -1,5 +1,6 @@
 let spanAtaqueJugador = document.getElementById('ataque-jugador')
 let spanAtaqueComputadora = document.getElementById('ataque-computadora')
+let resultado
 function iniciarJuego(){
     let botonMascotaJugador = document.getElementById('boton-mascota')
     let atacarFuego = document.getElementById('boton-fuego')
@@ -53,19 +54,20 @@ function seleccionarMascotaJugador(){
 function crearMensaje (){
     let sectionMensaje=document.getElementById('mensajes')
     let parrafo = document.createElement('p')
-    parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con'+spanAtaqueComputadora 
+    parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con'+spanAtaqueComputadora + 'el restultado es' + resultado
     sectionMensaje.appendChild(parrafo)
 }
 
 function batalla(){
+
 if (spanAtaqueJugador == spanAtaqueComputadora){
-    alert ("usted digito " + spanAtaqueJugador + " y la computadora " + spanAtaqueComputadora + " por tanto es un empate")  
+    resultado = 'EMPATE'
 }
     else if ( spanAtaqueJugador == 'agua' && spanAtaqueComputadora == 'fuego' || spanAtaqueJugador == 'fuego' && spanAtaqueComputadora == 'tierra'  || spanAtaqueJugador == 'tierra' && spanAtaqueComputadora == 'agua'){
-        alert("usted selecciono " + spanAtaqueJugador + " y la computadora " + spanAtaqueComputadora + " por tanto usted GANO")
+        resultado = 'VICTORIA'
     }
         else{
-            alert("usted selecciono " + spanAtaqueJugador + " y la computadora " + spanAtaqueComputadora + " por tanto usted PERDIO")
+            resultado = 'DERROTA'
         }
 }
 window.addEventListener('load', iniciarJuego)
