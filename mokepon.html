@@ -3,62 +3,34 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8"/>
     <title> JUEGO MOKEPON</title>
-    <script src="./js/mokepon.js"></script>
-
 </head>
 <body>  
     <h1> juego MOKEPON </h1>
     <section id="seleccionar-mascota">
         <h2> Elige tu mascota: </h2>
-
         <label for = "hipodoge" >hipodoge</label>
         <input type="radio" id = "hipodoge" name="mascota"/>
         <label for = "capipepo">capipepo</label>
         <input type="radio" id = "capipepo" name="mascota"/>
         <label for = "ratigueya">ratigueya</label>
         <input type="radio" id = "ratigueya" name="mascota"/>
-        
-        <!--<label for = "lagostelvis">tucapalma</label>
-        <input type="radio" id = "lagostelvis" name="mascota"/>
-        <label for = "pydos">pydos</label>
-        <input type="radio" id = "pydos" name="mascota"/>
- -->
-        <button id = "boton-mascota">seleccionar</button>
-   
-        
-    <!--
-        ANEXO DE MASCOTAS PARA EL EJERCICIO
-
-        hipodoge ->AGUA
-        capipepo ->TIERRA
-        ratigueya -> fuego
-        lagostelvis -> agua y fuego
-        tucapalma ->gua y TIERRA
-        pydos ->tierra y fuego 
-    -->
-
+                <button id = "boton-mascota">seleccionar</button>
     </section>
     <section id="seleccionar-ataque">
         <h2>elige tu ataque: </h2>
         <p>tu mascota es <span id="mascota-jugador"></span> y tiene <span>3</span> vidas</p>
         <p>la mascota del enemigo es <span id="mascota-enemigo"></span> y tiene <span>3</span> vidas</p>
         <p> 
-            <button> FUEGO </button>
-            <button> AGUA </button>
-            <button> TIERRA </button>
+            <button id = "boton-fuego"> FUEGO </button>
+            <button id = "boton-agua"> AGUA </button>
+            <button id = "boton-tierra"> TIERRA </button>
         </p>
     </section>
     <section id="mensajes">
-
-        <p>tu mascota ataco con fuego, la mascota del enemigo ataco con TIERRA</p>
-
     </section>
-
     <section  id="reiniciar">
         <button>reiniciar</button>
-
     </section>
-
 </body>
-
 </html>
+<script src="./js/mokepon.js"></script>
