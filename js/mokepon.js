@@ -1,6 +1,10 @@
+let vidasComputadora
+let vidasJugador
 let spanAtaqueJugador = document.getElementById('ataque-jugador')
 let spanAtaqueComputadora = document.getElementById('ataque-computadora')
-let resultado
+
+
+let resultado 
 function iniciarJuego(){
     let botonMascotaJugador = document.getElementById('boton-mascota')
     let atacarFuego = document.getElementById('boton-fuego')
@@ -29,7 +33,6 @@ function iniciarJuego(){
     spanAtaqueComputadora = ataques[(Math.floor(Math.random()*ataques.length))]
     batalla()
     crearMensaje()
-
     })
 }
 function seleccionarMascotaJugador(){
@@ -54,20 +57,31 @@ function seleccionarMascotaJugador(){
 function crearMensaje (){
     let sectionMensaje=document.getElementById('mensajes')
     let parrafo = document.createElement('p')
-    parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con'+spanAtaqueComputadora + 'el restultado es' + resultado
+    parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con '+spanAtaqueComputadora + 'el restultado es ' + resultado
     sectionMensaje.appendChild(parrafo)
 }
 
+vidasComputadora = 3
+vidasJugador = 3
 function batalla(){
+
+let spanVidasJugador =document.getElementById('vidas-jugador');
+let spanVidasComputadora = document.getElementById('vidas-computadora');
 
 if (spanAtaqueJugador == spanAtaqueComputadora){
     resultado = 'EMPATE'
 }
     else if ( spanAtaqueJugador == 'agua' && spanAtaqueComputadora == 'fuego' || spanAtaqueJugador == 'fuego' && spanAtaqueComputadora == 'tierra'  || spanAtaqueJugador == 'tierra' && spanAtaqueComputadora == 'agua'){
         resultado = 'VICTORIA'
+        vidasComputadora--;
+        spanVidasJugador.innerHTML=vidasJugador
+        spanVidasComputadora.innerHTML=vidasComputadora
     }
         else{
             resultado = 'DERROTA'
+            vidasJugador--;
+            spanVidasJugador.innerHTML=vidasJugador
+            spanVidasComputadora.innerHTML=vidasComputadora
         }
 }
 window.addEventListener('load', iniciarJuego)
