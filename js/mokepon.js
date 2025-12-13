@@ -75,18 +75,28 @@ function seleccionarMascotaJugador(){
     spanMascotaEnemigo.innerHTML = mascotas[(Math.floor(Math.random()*5))+1]
 }
 
+/*
+para la funcion crearMensaje se encuentra pendiente que genere ultima confirmacion de batalla
+no genera el tecer mensaje solo notifica si se gana o se pierde
+*/ 
 function crearMensaje (){
     let sectionMensaje=document.getElementById('mensajes')
     let parrafo = document.createElement('p')
 
+    let sectionMensajeFinal=document.getElementById('mensajes-final')
+    let parrafoFinal = document.createElement('p')
     if (vidasComputadora === 0){
-        parrafo.innerHTML='GANASTE'
+        parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con '+spanAtaqueComputadora + 'el restultado es ' + resultado
         sectionMensaje.appendChild(parrafo)
+        parrafoFinal.innerHTML='GANASTE EL JUEGO MI REY'
+        sectionMensajeFinal.appendChild(parrafoFinal)
 
     }
     else if( vidasJugador === 0){
-        parrafo.innerHTML='PERDISTE'
+        parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con '+spanAtaqueComputadora + 'el restultado es ' + resultado
         sectionMensaje.appendChild(parrafo)
+        parrafoFinal.innerHTML='PERDISTE EL JUEGO ERES UN FRACASADO Y UN MI3RD4S'
+        sectionMensajeFinal.appendChild(parrafoFinal)
     }
     else{
         parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con '+spanAtaqueComputadora + 'el restultado es ' + resultado
