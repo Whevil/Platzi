@@ -1,24 +1,34 @@
-let vidasComputadora
-let vidasJugador
+// declaracion de variables globales
+let vidasComputadora = 3
+let vidasJugador = 3
 let spanAtaqueJugador = document.getElementById('ataque-jugador')
 let spanAtaqueComputadora = document.getElementById('ataque-computadora')
-
-
 let resultado 
+
+// funciones del juego 
 function iniciarJuego(){
     let botonMascotaJugador = document.getElementById('boton-mascota')
     let atacarFuego = document.getElementById('boton-fuego')
     let atacarAgua = document.getElementById('boton-agua')
     let atacarTierra = document.getElementById('boton-tierra')
     let ataques = ['fuego', 'agua', 'tierra']
+    let botonReiniciar = document.getElementById('boton-reiniciar')
 
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
+    botonReiniciar.addEventListener('click', reiniciarJuego)
 
     atacarFuego.addEventListener('click', ()=>
     {spanAtaqueJugador = 'fuego';
     spanAtaqueComputadora = ataques[(Math.floor(Math.random()*ataques.length))]
     batalla()
     crearMensaje()
+    if (vidasComputadora === 0 || vidasJugador === 0){
+        atacarFuego.disabled = true
+        atacarAgua.disabled = true
+        atacarTierra.disabled = true
+    }
+    
+
     })
 
     atacarAgua.addEventListener('click', ()=>
@@ -26,6 +36,12 @@ function iniciarJuego(){
     spanAtaqueComputadora = ataques[(Math.floor(Math.random()*ataques.length))]
     batalla()
     crearMensaje()
+    if (vidasComputadora === 0 || vidasJugador === 0){
+        atacarFuego.disabled = true
+        atacarAgua.disabled = true
+        atacarTierra.disabled = true
+    }
+
     })
 
     atacarTierra.addEventListener('click', ()=>
@@ -33,6 +49,11 @@ function iniciarJuego(){
     spanAtaqueComputadora = ataques[(Math.floor(Math.random()*ataques.length))]
     batalla()
     crearMensaje()
+    if (vidasComputadora === 0 || vidasJugador === 0){
+        atacarFuego.disabled = true
+        atacarAgua.disabled = true
+        atacarTierra.disabled = true
+    }
     })
 }
 function seleccionarMascotaJugador(){
@@ -57,12 +78,24 @@ function seleccionarMascotaJugador(){
 function crearMensaje (){
     let sectionMensaje=document.getElementById('mensajes')
     let parrafo = document.createElement('p')
-    parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con '+spanAtaqueComputadora + 'el restultado es ' + resultado
-    sectionMensaje.appendChild(parrafo)
+
+    if (vidasComputadora === 0){
+        parrafo.innerHTML='GANASTE'
+        sectionMensaje.appendChild(parrafo)
+
+    }
+    else if( vidasJugador === 0){
+        parrafo.innerHTML='PERDISTE'
+        sectionMensaje.appendChild(parrafo)
+    }
+    else{
+        parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con '+spanAtaqueComputadora + 'el restultado es ' + resultado
+        sectionMensaje.appendChild(parrafo)
+    }    
 }
 
-vidasComputadora = 3
-vidasJugador = 3
+
+
 function batalla(){
 
 let spanVidasJugador =document.getElementById('vidas-jugador');
@@ -84,5 +117,11 @@ if (spanAtaqueJugador == spanAtaqueComputadora){
             spanVidasComputadora.innerHTML=vidasComputadora
         }
 }
+
+function reiniciarJuego(){
+    location.reload()
+}
+
+
 window.addEventListener('load', iniciarJuego)
 
