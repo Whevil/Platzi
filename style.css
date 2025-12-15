@@ -1,10 +1,16 @@
-h1 {
+/*
+selectores
+    de tipo mismo nombre de la etiqueta por ejemplo etiauqeta h1 para cambiar esa seccion de etiqueta
+    de tiplo clases se integra atributo class = "nombre" y se seleciona en CSS con un .nombre
+    de tipo ID se seleccoiona el id de la etiauqeta con un #nombre y se integran los estilos
+*/
+.tittle {
     color: lightcoral;
 
-
-}   
+}
 
 body {
     background-color: #3b3636;
     color: white; /* opcional */
 }
+

@@ -4,7 +4,6 @@ let vidasJugador = 3
 let spanAtaqueJugador = document.getElementById('ataque-jugador')
 let spanAtaqueComputadora = document.getElementById('ataque-computadora')
 let resultado 
-
 // funciones del juego 
 function iniciarJuego(){
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
@@ -83,7 +82,6 @@ function seleccionarMascotaJugador(){
     }
     spanMascotaEnemigo.innerHTML = mascotas[(Math.floor(Math.random()*5))+1]
 }
-
 // se implementa parrafo personalziado y se garantizan todas las confirmaciondes de batalla 
 function crearMensaje (){
     let sectionMensaje=document.getElementById('mensajes')
@@ -114,8 +112,6 @@ function crearMensaje (){
 
     }    
 }
-
-
 //logica para generar calculo de batalla completada
 function batalla(){
 
@@ -142,7 +138,6 @@ if (spanAtaqueJugador == spanAtaqueComputadora){
 function reiniciarJuego(){
     location.reload()
 }
-
 // cargar juego 
 window.addEventListener('load', iniciarJuego)
 
