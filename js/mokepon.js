@@ -58,6 +58,7 @@ function iniciarJuego(){
     }
     })
 }
+//logica completada para seleccionar mascota
 function seleccionarMascotaJugador(){
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'block'
@@ -115,7 +116,7 @@ function crearMensaje (){
 }
 
 
-
+//logica para generar calculo de batalla completada
 function batalla(){
 
 let spanVidasJugador =document.getElementById('vidas-jugador');
@@ -137,11 +138,11 @@ if (spanAtaqueJugador == spanAtaqueComputadora){
             spanVidasComputadora.innerHTML=vidasComputadora
         }
 }
-
+// funcion para refresh de pagina y reiniciar juego probado
 function reiniciarJuego(){
     location.reload()
 }
 
-
+// cargar juego 
 window.addEventListener('load', iniciarJuego)
 
