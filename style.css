@@ -1,4 +1,10 @@
+h1 {
+    color: lightcoral;
+
+
+}   
+
 body {
-    background-color: #534e4e;
+    background-color: #3b3636;
     color: white; /* opcional */
 }

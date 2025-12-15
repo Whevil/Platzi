@@ -7,13 +7,15 @@ let resultado
 
 // funciones del juego 
 function iniciarJuego(){
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'none'
     let botonMascotaJugador = document.getElementById('boton-mascota')
     let atacarFuego = document.getElementById('boton-fuego')
     let atacarAgua = document.getElementById('boton-agua')
     let atacarTierra = document.getElementById('boton-tierra')
     let ataques = ['fuego', 'agua', 'tierra']
     let botonReiniciar = document.getElementById('boton-reiniciar')
-
+    botonReiniciar.style.display = 'none'
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
     botonReiniciar.addEventListener('click', reiniciarJuego)
 
@@ -57,6 +59,12 @@ function iniciarJuego(){
     })
 }
 function seleccionarMascotaJugador(){
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'block'
+    let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+    sectionSeleccionarMascota.style.display = 'none'
+
+
     let spanMascotaJugador = document.getElementById('mascota-jugador');
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo');
     let mascotas = [ "hipodoge", "capipepo", "ratigueya", "lagostelvis", "tucapalma", "pydos"]
@@ -75,10 +83,7 @@ function seleccionarMascotaJugador(){
     spanMascotaEnemigo.innerHTML = mascotas[(Math.floor(Math.random()*5))+1]
 }
 
-/*
-para la funcion crearMensaje se encuentra pendiente que genere ultima confirmacion de batalla
-no genera el tecer mensaje solo notifica si se gana o se pierde
-*/ 
+// se implementa parrafo personalziado y se garantizan todas las confirmaciondes de batalla 
 function crearMensaje (){
     let sectionMensaje=document.getElementById('mensajes')
     let parrafo = document.createElement('p')
@@ -90,6 +95,8 @@ function crearMensaje (){
         sectionMensaje.appendChild(parrafo)
         parrafoFinal.innerHTML='GANASTE EL JUEGO MI REY'
         sectionMensajeFinal.appendChild(parrafoFinal)
+        let botonReiniciar = document.getElementById('boton-reiniciar')
+        botonReiniciar.style.display = 'block'        
 
     }
     else if( vidasJugador === 0){
@@ -97,10 +104,13 @@ function crearMensaje (){
         sectionMensaje.appendChild(parrafo)
         parrafoFinal.innerHTML='PERDISTE EL JUEGO ERES UN FRACASADO Y UN MI3RD4S'
         sectionMensajeFinal.appendChild(parrafoFinal)
+        let botonReiniciar = document.getElementById('boton-reiniciar')
+        botonReiniciar.style.display = 'block' 
     }
-    else{
+        else{
         parrafo.innerHTML='tu mascota ataco con '+ spanAtaqueJugador+' y la computadora ataco con '+spanAtaqueComputadora + 'el restultado es ' + resultado
         sectionMensaje.appendChild(parrafo)
+
     }    
 }
 
