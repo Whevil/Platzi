@@ -78,7 +78,9 @@ function seleccionarMascotaJugador(){
     spanMascotaJugador.innerHTML = 'ratigueya'
     }
     else {
-      alert("debesa seleccionar mascota")
+        alert("debesa seleccionar mascota")
+        sectionSeleccionarAtaque.style.display = 'none'
+        sectionSeleccionarMascota.style.display = 'block'
     }
     spanMascotaEnemigo.innerHTML = mascotas[(Math.floor(Math.random()*5))+1]
 }
