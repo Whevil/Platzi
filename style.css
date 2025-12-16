@@ -11,22 +11,13 @@ selectores
     background-color: teal;
 }
 
-button{
-    background-color: tomato;
-    width: 310px;
-    height: 50px;
+#seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 
-}
-label{
-    width: 310px;
-    height: 50px;
-    background-color: tomato;
-}
-input{
-    width: 310px;
-    height: 50px;
-    background-color: tomato;
 }
 
 /*
