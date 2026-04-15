@@ -19,7 +19,19 @@ selectores
 
 
 }
+.tarjeta-de-mokepon {
+    width: 100px;
+    height: 100px;
+    background: tomato;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 10px;
+}
+input{
 
+    display: none;
+}
 /*
 body {
     background-color: #3b3636;

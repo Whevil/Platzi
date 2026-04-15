@@ -78,9 +78,9 @@ function seleccionarMascotaJugador(){
     spanMascotaJugador.innerHTML = 'ratigueya'
     }
     else {
-        alert("debesa seleccionar mascota")
+        alert("debe seleccionar mascota")
         sectionSeleccionarAtaque.style.display = 'none'
-        sectionSeleccionarMascota.style.display = 'block'
+        sectionSeleccionarMascota.style.display = 'flex'
     }
     spanMascotaEnemigo.innerHTML = mascotas[(Math.floor(Math.random()*5))+1]
 }
@@ -136,10 +136,19 @@ if (spanAtaqueJugador == spanAtaqueComputadora){
             spanVidasComputadora.innerHTML=vidasComputadora
         }
 }
+
+
+let firstName = "Hernando";
+let lastName = "Barrera"
+console.log(firstName, lastName)
+let containsLetterH = firstName.includes('H')
+console.log({containsLetterH})
 // funcion para refresh de pagina y reiniciar juego probado
 function reiniciarJuego(){
     location.reload()
 }
 // cargar juego 
 window.addEventListener('load', iniciarJuego)
+
+
 
